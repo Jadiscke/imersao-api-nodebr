@@ -35,6 +35,22 @@ class Database {
     const dadosFiltrados = dados.filter((item) => (id ? item.id === id : true));
     return dadosFiltrados;
   }
+  #existIndex(index){
+    
+  }
+  async remover(id){
+    if(!id){
+      return await this.escreverArquivo([]);
+    }
+    const dados = await this.obterDadosArquivo();
+    const indice = dados.findIndex(item =>  item.id === parseInt(id))
+    if(indice === -1){
+      throw Error('O usuario nao existe')
+    }
+
+    dados.splice(indice,1)
+    return await this.escreverArquivo(dados)
+  }
 }
 
 module.exports = new Database();

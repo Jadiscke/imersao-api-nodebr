@@ -7,6 +7,6 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "test": "mocha"
+    "test": "mocha -w"
   }
 }
