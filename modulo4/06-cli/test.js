@@ -1,4 +1,5 @@
 const { deepStrictEqual, ok } = require("assert");
+const { DEFAULT_MAX_VERSION } = require("tls");
 const database = require("./database");
 
 const DEFAULT_ITEM_CADASTRAR = {
@@ -7,10 +8,21 @@ const DEFAULT_ITEM_CADASTRAR = {
   id: 1,
 };
 
+const DEFAULT_ITEM_ATUALIZAR = {
+  nome: "Laterna Verde",
+  poder: "Energia do Anel",
+  id: 2
+}
 describe("Suite de manipulacao de Herois", () => {
   before(async () => {
     await database.cadastrar(DEFAULT_ITEM_CADASTRAR);
+    await database.cadastrar(DEFAULT_ITEM_ATUALIZAR);
   });
+
+  after(async () => {
+    await database.remover(DEFAULT_ITEM_CADASTRAR.id);
+    await database.remover(DEFAULT_ITEM_ATUALIZAR.id);
+  })
 
   it("deve pesquisar um heroi, usando arquivos", async () => {
     const expected = DEFAULT_ITEM_CADASTRAR;
@@ -29,5 +41,22 @@ describe("Suite de manipulacao de Herois", () => {
     const expected = true;
     const resultado = await database.remover(DEFAULT_ITEM_CADASTRAR.id)
     deepStrictEqual(resultado, expected);
+  })
+
+  it('deve atualizar um heroi pelo id', async()=>{
+    const expected = {
+      ...DEFAULT_ITEM_ATUALIZAR,
+      nome: 'Batman',
+      poder: 'Dinheiro'
+    }
+
+    const novoDado = {
+      nome: 'Batman',
+      poder: 'Dinheiro'
+    }
+
+    await database.atualizar(DEFAULT_ITEM_ATUALIZAR.id, novoDado);
+    const [resultado] = await database.listar(DEFAULT_ITEM_ATUALIZAR.id)
+    deepStrictEqual(resultado,expected);
   })
 });
