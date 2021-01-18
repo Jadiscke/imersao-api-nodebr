@@ -8,5 +8,8 @@
   "license": "MIT",
   "scripts": {
     "test": "mocha -w"
+  },
+  "dependencies": {
+    "commander": "^7.0.0"
   }
 }
