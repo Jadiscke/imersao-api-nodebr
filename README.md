@@ -35,8 +35,23 @@ Tópicos trabalhados:
 - [x] Manipulando Arquivos - CREATE
 - [x] Manipulando Arquivos - DELETE
 - [x] Manipulando Arquivos - UPDATE
-- [ ] Criando ferramentas de linha de comando
+- [x] Criando ferramentas de linha de comando
 
 Lições aprendidas:
 
 - TDD ajuda a estrutar e planejar a criação de um aplicação
+
+## Módulo 5 - Banco de Dados, nosso projeto multi-banco de dados
+
+Tópicos trabalhados:
+
+- [x] Criando projetos Multibanco de Dados
+- [x] Trabalhando com Padrão Strategy para MultiDataSources
+- [x] Design Patterns - Strategy
+- [x] Demonstração multi datasources com strategy design pattern
+
+
+Lições Aprendidas:
+
+- POO ajuda ajuda com DRY (Don't Repeat Yourself)
+- Padrão de projeto strategy
