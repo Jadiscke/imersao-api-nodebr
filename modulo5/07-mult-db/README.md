@@ -1,29 +1,31 @@
-
 ## Run Postgres Docker
- ```sh
+
+```sh
 docker run \
- --name postgres \
- -e POSTGRES_USER=jadiscke \
- -e POSTGRES_PASSWORD=password \
- -e POSTGRES_DB=heroes \
- -p 5432:5432 \
- -d \
- postgres
+--name postgres \
+-e POSTGRES_USER=jadiscke \
+-e POSTGRES_PASSWORD=password \
+-e POSTGRES_DB=heroes \
+-p 5432:5432 \
+-d \
+postgres
 ```
 
-
 ## See which images are runnig
+
 ```sh
 docker ps
 ```
 
 ## Execute bash inside the container
+
 ```sh
 docker exec -it postgres /bin/bash
 
 ```
 
 ## Execute adminer
+
 ```sh
 docker run \
     --name adminer \
@@ -32,7 +34,6 @@ docker run \
     -d \
     adminer
 ```
-
 
 ## Run MongoDB docker
 
@@ -61,9 +62,8 @@ docker run \
 
 ```sh
 docker exec -it mongodb \
-    mongo --host localhost -u adming -p password --authenticationDatabase admin \
+    mongo --host localhost -u admin -p password --authenticationDatabase admin \
     --eval "db.getSiblingDB('herois').createUser({user:'jadiscke', pwd: 'password', roles: [{role: 'readWrite', db: 'herois'}]})"
 ```
 
 ## Padroes de Projeto --- Strategy
-
