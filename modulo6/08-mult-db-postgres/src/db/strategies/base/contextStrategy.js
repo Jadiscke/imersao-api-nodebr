@@ -16,7 +16,7 @@ class ContextStrategy extends ICrud {
   }
 
   update(id, item) {
-    this.#database.update(id, item);
+    return this.#database.update(id, item);
   }
 
   delete(id) {
