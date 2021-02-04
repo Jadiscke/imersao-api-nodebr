@@ -7,12 +7,12 @@ class ContextStrategy extends ICrud {
     this.#database = strategy;
   }
 
-  async create(item) {
-    return await this.#database.create(item);
+  create(item) {
+    return this.#database.create(item);
   }
 
   read(query) {
-    this.#database.read(query);
+    return this.#database.read(query);
   }
 
   update(id, item) {
